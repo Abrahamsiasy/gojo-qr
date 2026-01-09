@@ -220,8 +220,8 @@
                                 name="content" 
                                 id="content" 
                                 required
-                                placeholder="https://gojotech.et"
-                                value="https://gojotech.et"
+                                placeholder="https://exmaple.com"
+                                value="https://exmaple.com"
                                 class="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all"
                             >
                         </div>
