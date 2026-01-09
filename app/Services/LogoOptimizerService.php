@@ -31,10 +31,10 @@ class LogoOptimizerService
      * Optimize and prepare logo for QR code merging
      * Returns the optimized image as a temporary file path
      */
-    public function optimize(UploadedFile $file, int $qrSize = 512): string
+    public function optimize(UploadedFile $file, int $qrSize = 512, float $sizePercentage = 0.3): string
     {
-        // Calculate logo size (30% of QR code size)
-        $logoSize = (int) ($qrSize * 0.3);
+        // Calculate logo size based on percentage (default 30% of QR code size)
+        $logoSize = (int) ($qrSize * $sizePercentage);
         
         try {
             // Read the image

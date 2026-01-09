@@ -220,7 +220,7 @@
                                 <span class="text-sm text-gray-300">Click to upload logo</span>
                                 <input type="file" name="logo" id="logo" accept="image/*" class="hidden">
                             </label>
-                            <div id="logoPreview" class="hidden mt-3">
+                            <div id="logoPreview" class="hidden mt-3 space-y-3">
                                 <div class="flex items-center gap-3">
                                     <div class="relative">
                                         <img id="logoPreviewImg" src="" alt="Logo" class="w-20 h-20 object-cover rounded-lg border-2 border-cyan-500 shadow-lg">
@@ -230,6 +230,96 @@
                                         <p class="text-xs text-gray-400">Logo will be placed in the center</p>
                                         <p class="text-xs text-cyan-400 mt-1">✓ Logo enabled</p>
                                     </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <label class="block text-xs font-medium text-gray-400">Logo Size</label>
+                                        <span id="logoSizeValue" class="text-xs font-medium text-cyan-400">30%</span>
+                                    </div>
+                                    <input type="range" name="logo_size" id="logoSize" min="0.1" max="0.4" value="0.3" step="0.05" class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>10%</span>
+                                        <span>40%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scan Me Text -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300">Add "Scan Me" Text</label>
+                                <p class="text-xs text-gray-500 mt-1">Add text below the QR code</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="enableScanText" name="enable_scan_text" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500"></div>
+                            </label>
+                        </div>
+                        <div id="scanTextOptions" class="hidden space-y-3">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Text</label>
+                                <input type="text" name="scan_text" id="scanText" value="SCAN ME" placeholder="SCAN ME" class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            </div>
+                            
+                            <!-- Visual Style Selection -->
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Visual Style</label>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                    <button type="button" data-style="plain" class="scan-style-btn p-3 bg-gray-800 border-2 border-gray-700 rounded-lg hover:border-cyan-500 transition-all text-center">
+                                        <div class="text-xs text-gray-300 mb-1">Plain</div>
+                                        <div class="text-[10px] text-gray-500">Below QR</div>
+                                    </button>
+                                    <button type="button" data-style="speech" class="scan-style-btn active p-3 bg-cyan-500/20 border-2 border-cyan-500 rounded-lg transition-all text-center">
+                                        <div class="text-xs text-cyan-400 mb-1">Speech</div>
+                                        <div class="text-[10px] text-gray-500">Bubble</div>
+                                    </button>
+                                    <button type="button" data-style="banner" class="scan-style-btn p-3 bg-gray-800 border-2 border-gray-700 rounded-lg hover:border-cyan-500 transition-all text-center">
+                                        <div class="text-xs text-gray-300 mb-1">Banner</div>
+                                        <div class="text-[10px] text-gray-500">Ribbon</div>
+                                    </button>
+                                    <button type="button" data-style="badge" class="scan-style-btn p-3 bg-gray-800 border-2 border-gray-700 rounded-lg hover:border-cyan-500 transition-all text-center">
+                                        <div class="text-xs text-gray-300 mb-1">Badge</div>
+                                        <div class="text-[10px] text-gray-500">Label</div>
+                                    </button>
+                                </div>
+                                <input type="hidden" name="scan_text_style" id="scanTextStyle" value="speech">
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-2">Size</label>
+                                    <select name="scan_text_size" id="scanTextSize" class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                                        <option value="small">Small</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="large">Large</option>
+                                        <option value="xlarge">Extra Large</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-400 mb-2">Position</label>
+                                    <select name="scan_text_position" id="scanTextPosition" class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                                        <option value="below" selected>Below QR</option>
+                                        <option value="above">Above QR</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Text Color</label>
+                                <div class="flex items-center gap-3">
+                                    <input type="color" name="scan_text_color" id="scanTextColor" value="#ffffff" class="w-10 h-10 rounded-lg border-2 border-gray-700 cursor-pointer">
+                                    <input type="text" id="scanTextColorHex" value="#ffffff" class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                                </div>
+                            </div>
+                            
+                            <div id="styleColorOptions">
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Background Color</label>
+                                <div class="flex items-center gap-3">
+                                    <input type="color" name="scan_bg_color" id="scanBgColor" value="#000000" class="w-10 h-10 rounded-lg border-2 border-gray-700 cursor-pointer">
+                                    <input type="text" id="scanBgColorHex" value="#000000" class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500">
                                 </div>
                             </div>
                         </div>
@@ -244,9 +334,58 @@
                         <input type="range" name="size" id="size" min="200" max="1000" value="512" step="10" class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
                     </div>
 
+                    <!-- Border/Frame Options -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300">Add Border</label>
+                                <p class="text-xs text-gray-500 mt-1">Frame around the QR code</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="enableBorder" name="enable_border" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500"></div>
+                            </label>
+                        </div>
+                        <div id="borderOptions" class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Border Style</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button type="button" data-border="square" class="border-style-btn active p-2 bg-cyan-500/20 border-2 border-cyan-500 rounded-lg text-center">
+                                        <div class="text-xs text-cyan-400 font-medium">Square</div>
+                                    </button>
+                                    <button type="button" data-border="rounded" class="border-style-btn p-2 bg-gray-800 border-2 border-gray-700 rounded-lg text-center hover:border-gray-600">
+                                        <div class="text-xs text-gray-300 font-medium">Rounded</div>
+                                    </button>
+                                    <button type="button" data-border="circle" class="border-style-btn p-2 bg-gray-800 border-2 border-gray-700 rounded-lg text-center hover:border-gray-600">
+                                        <div class="text-xs text-gray-300 font-medium">Circle</div>
+                                    </button>
+                                </div>
+                                <input type="hidden" name="border_style" id="borderStyle" value="square">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Border Width</label>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs text-gray-500">Thin</span>
+                                    <span id="borderWidthValue" class="text-xs font-medium text-cyan-400">20px</span>
+                                    <span class="text-xs text-gray-500">Thick</span>
+                                </div>
+                                <input type="range" name="border_width" id="borderWidth" min="10" max="50" value="20" step="5" class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Gap Size</label>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs text-gray-500">Small</span>
+                                    <span id="borderGapValue" class="text-xs font-medium text-cyan-400">10px</span>
+                                    <span class="text-xs text-gray-500">Large</span>
+                                </div>
+                                <input type="range" name="border_gap" id="borderGap" min="5" max="30" value="10" step="5" class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">Border color matches QR code color</p>
+                        </div>
+                    </div>
+
                     <!-- Hidden fields -->
                     <input type="hidden" name="format" value="png">
-                    <input type="hidden" name="logo_size" value="0.3">
                     <input type="hidden" name="error_correction" value="H">
 
                     <!-- Action Buttons -->
@@ -282,7 +421,7 @@
                     <p class="text-sm text-gray-400 mb-6">Your QR code updates in real-time</p>
                     
                     <div class="bg-white p-8 rounded-xl flex items-center justify-center min-h-[400px]" id="qrPreviewContainer">
-                        <div id="qrImageContainer" class="max-w-full">
+                        <div id="qrImageContainer" class="w-full flex flex-col items-center">
                             <!-- QR code will appear here -->
                         </div>
                     </div>
@@ -393,7 +532,7 @@
                 const formData = new FormData();
                 formData.append('type', type);
                 formData.append('content', config.example);
-                formData.append('size', '120');
+                formData.append('size', '200');
                 formData.append('format', 'png');
                 formData.append('error_correction', 'H');
                 formData.append('color', '#000000');
@@ -477,6 +616,149 @@
                 document.getElementById('logoPreview').classList.add('hidden');
             }
             updatePreview();
+        });
+
+        // Logo size slider
+        document.getElementById('logoSize').addEventListener('input', function() {
+            const percentage = (parseFloat(this.value) * 100).toFixed(0);
+            document.getElementById('logoSizeValue').textContent = percentage + '%';
+            updatePreview();
+        });
+
+        // Border toggle handler
+        document.getElementById('enableBorder').addEventListener('change', function() {
+            const borderOptions = document.getElementById('borderOptions');
+            if (this.checked) {
+                borderOptions.classList.remove('hidden');
+            } else {
+                borderOptions.classList.add('hidden');
+            }
+            updatePreview();
+        });
+
+        // Border style selection
+        document.querySelectorAll('.border-style-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.border-style-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-cyan-500/20', 'border-cyan-500');
+                    b.classList.add('bg-gray-800', 'border-gray-700');
+                });
+                this.classList.add('active', 'bg-cyan-500/20', 'border-cyan-500');
+                this.classList.remove('bg-gray-800', 'border-gray-700');
+                
+                const style = this.dataset.border;
+                document.getElementById('borderStyle').value = style;
+                updatePreview();
+            });
+        });
+
+        // Border width slider
+        document.getElementById('borderWidth').addEventListener('input', function() {
+            document.getElementById('borderWidthValue').textContent = this.value + 'px';
+            updatePreview();
+        });
+
+        // Border gap slider
+        document.getElementById('borderGap').addEventListener('input', function() {
+            document.getElementById('borderGapValue').textContent = this.value + 'px';
+            updatePreview();
+        });
+
+        // Scan text toggle handler
+        document.getElementById('enableScanText').addEventListener('change', function() {
+            const scanTextOptions = document.getElementById('scanTextOptions');
+            if (this.checked) {
+                scanTextOptions.classList.remove('hidden');
+            } else {
+                scanTextOptions.classList.add('hidden');
+            }
+            updatePreview();
+        });
+
+        // Scan text color picker sync
+        document.getElementById('scanTextColor').addEventListener('input', function() {
+            document.getElementById('scanTextColorHex').value = this.value;
+            updatePreview();
+        });
+
+        document.getElementById('scanTextColorHex').addEventListener('input', function() {
+            if (/^#?[0-9A-Fa-f]{6}$/.test(this.value)) {
+                const hex = this.value.startsWith('#') ? this.value : '#' + this.value;
+                document.getElementById('scanTextColor').value = hex;
+                this.value = hex;
+                updatePreview();
+            }
+        });
+
+        // Scan text visual style selection
+        document.querySelectorAll('.scan-style-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.scan-style-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-cyan-500/20', 'border-cyan-500');
+                    b.classList.add('bg-gray-800', 'border-gray-700');
+                });
+                this.classList.add('active', 'bg-cyan-500/20', 'border-cyan-500');
+                this.classList.remove('bg-gray-800', 'border-gray-700');
+                
+                const style = this.dataset.style;
+                document.getElementById('scanTextStyle').value = style;
+                
+                // Show/hide background color based on style and set defaults
+                const bgColorOptions = document.getElementById('styleColorOptions');
+                const bgColorInput = document.getElementById('scanBgColor');
+                const bgColorHex = document.getElementById('scanBgColorHex');
+                
+                if (style === 'plain') {
+                    bgColorOptions.classList.add('hidden');
+                } else {
+                    bgColorOptions.classList.remove('hidden');
+                    // Set default background colors for each style
+                    const defaultColors = {
+                        'speech': '#000000',
+                        'banner': '#FFB6C1', // Light pink
+                        'badge': '#000000'
+                    };
+                    const defaultTextColors = {
+                        'speech': '#ffffff',
+                        'banner': '#000000',
+                        'badge': '#ffffff'
+                    };
+                    if (defaultColors[style]) {
+                        bgColorInput.value = defaultColors[style];
+                        bgColorHex.value = defaultColors[style];
+                    }
+                    if (defaultTextColors[style]) {
+                        document.getElementById('scanTextColor').value = defaultTextColors[style];
+                        document.getElementById('scanTextColorHex').value = defaultTextColors[style];
+                    }
+                }
+                
+                updatePreview();
+            });
+        });
+
+        // Scan text input handlers
+        document.getElementById('scanText').addEventListener('input', function() {
+            clearTimeout(previewTimeout);
+            previewTimeout = setTimeout(updatePreview, 500);
+        });
+
+        document.getElementById('scanTextSize').addEventListener('change', updatePreview);
+        document.getElementById('scanTextPosition').addEventListener('change', updatePreview);
+
+        // Scan text background color picker sync
+        document.getElementById('scanBgColor').addEventListener('input', function() {
+            document.getElementById('scanBgColorHex').value = this.value;
+            updatePreview();
+        });
+
+        document.getElementById('scanBgColorHex').addEventListener('input', function() {
+            if (/^#?[0-9A-Fa-f]{6}$/.test(this.value)) {
+                const hex = this.value.startsWith('#') ? this.value : '#' + this.value;
+                document.getElementById('scanBgColor').value = hex;
+                this.value = hex;
+                updatePreview();
+            }
         });
 
         // Preset/Custom tab switching
@@ -592,9 +874,49 @@
             const formData = new FormData(document.getElementById('qrForm'));
             formData.append('_token', document.querySelector('meta[name="csrf-token"]').content);
             
-            // Remove logo from form if toggle is off
-            if (!document.getElementById('enableLogo').checked) {
+            // Handle logo - explicitly add all fields if enabled
+            const enableLogo = document.getElementById('enableLogo').checked;
+            if (enableLogo && document.getElementById('logo').files.length > 0) {
+                formData.append('enable_logo', '1');
+                formData.append('logo_size', document.getElementById('logoSize').value || '0.3');
+            } else {
                 formData.delete('logo');
+                formData.delete('enable_logo');
+            }
+            
+            // Handle border - explicitly add all fields if enabled
+            const enableBorder = document.getElementById('enableBorder').checked;
+            if (enableBorder) {
+                formData.append('enable_border', '1');
+                formData.append('border_style', document.getElementById('borderStyle').value || 'square');
+                formData.append('border_width', document.getElementById('borderWidth').value || '20');
+                formData.append('border_gap', document.getElementById('borderGap').value || '10');
+            } else {
+                formData.delete('enable_border');
+                formData.delete('border_style');
+                formData.delete('border_width');
+                formData.delete('border_gap');
+            }
+            
+            // Handle scan text - explicitly add all fields if enabled
+            const enableScanText = document.getElementById('enableScanText').checked;
+            if (enableScanText) {
+                formData.append('enable_scan_text', '1');
+                formData.append('scan_text', document.getElementById('scanText').value || 'SCAN ME');
+                formData.append('scan_text_style', document.getElementById('scanTextStyle').value || 'speech');
+                formData.append('scan_text_size', document.getElementById('scanTextSize').value || 'medium');
+                formData.append('scan_text_position', document.getElementById('scanTextPosition').value || 'below');
+                formData.append('scan_text_color', document.getElementById('scanTextColor').value || '#ffffff');
+                formData.append('scan_bg_color', document.getElementById('scanBgColor').value || '#000000');
+            } else {
+                // Remove scan text fields if disabled
+                formData.delete('enable_scan_text');
+                formData.delete('scan_text');
+                formData.delete('scan_text_style');
+                formData.delete('scan_text_size');
+                formData.delete('scan_text_position');
+                formData.delete('scan_text_color');
+                formData.delete('scan_bg_color');
             }
             
             const container = document.getElementById('qrImageContainer');
@@ -619,7 +941,7 @@
                     }
                     currentQrUrl = url;
                     
-                    container.innerHTML = `<img src="${url}" alt="QR Code" class="max-w-full h-auto">`;
+                    container.innerHTML = `<img src="${url}" alt="QR Code" class="w-full max-w-md h-auto rounded-lg shadow-lg">`;
                 } else {
                     const errorData = await response.json().catch(() => ({}));
                     container.innerHTML = '<div class="text-red-400">Error: ' + (errorData.message || 'Failed to generate QR code') + '</div>';
