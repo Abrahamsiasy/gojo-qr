@@ -34,7 +34,7 @@ class QrCodeController extends Controller
     {
         $request->validate([
             'type' => 'required|in:url,text,email,sms,wifi,vcard,phone',
-            'content' => 'required|string|max:5000',
+            'content' => 'required|string|max:3000', // Reduced from 5000 to prevent abuse
             'size' => 'nullable|integer|min:200|max:1000',
             'format' => 'nullable|in:png,svg',
             'logo' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
@@ -120,9 +120,13 @@ class QrCodeController extends Controller
         // Generate QR code
         $qrData = $qrCode->generate($qrContent);
 
-        // Cleanup temporary logo file
-        if ($tempLogoPath) {
-            $this->logoOptimizer->cleanup($tempLogoPath);
+        // Cleanup temporary logo file (always cleanup, even on errors)
+        try {
+            if ($tempLogoPath && file_exists($tempLogoPath)) {
+                $this->logoOptimizer->cleanup($tempLogoPath);
+            }
+        } catch (\Exception $e) {
+            Log::warning('Failed to cleanup logo file: ' . $e->getMessage());
         }
 
         // Add border if enabled (only for PNG format)
