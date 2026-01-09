@@ -6,6 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>QR Gen - Free QR Code Generator</title>
     <meta name="description" content="Create beautiful, customizable QR codes instantly. 100% free, no signup required.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-black min-h-screen text-white">
