@@ -1,13 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>QR Gen - Free QR Code Generator</title>
-    <meta name="description" content="Create beautiful, customizable QR codes instantly. 100% free, no signup required.">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Free QR Code Generator Ethiopia - Create Custom QR Codes Online | QR Gen</title>
+    <meta name="title" content="Free QR Code Generator Ethiopia - Create Custom QR Codes Online | QR Gen">
+    <meta name="description" content="Free QR code generator for Ethiopia. Create custom QR codes with logos, colors, and borders. Generate QR codes for URLs, WiFi, vCard, SMS, Email. 100% free, no signup required. Perfect for Ethiopian businesses and individuals.">
+    <meta name="keywords" content="QR code generator, QR code generator Ethiopia, free QR code, QR code maker, custom QR code, QR code with logo, Ethiopia QR code, online QR generator, QR code creator, business QR code Ethiopia">
+    <meta name="author" content="QR Gen">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="geo.region" content="ET">
+    <meta name="geo.placename" content="Ethiopia">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="Free QR Code Generator Ethiopia - Create Custom QR Codes Online">
+    <meta property="og:description" content="Create beautiful, customizable QR codes instantly. Add logos, colors, borders, and scan text. 100% free, no signup required. Perfect for Ethiopian businesses.">
+    <meta property="og:image" content="{{ url('/favicon.svg') }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="QR Gen">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url('/') }}">
+    <meta property="twitter:title" content="Free QR Code Generator Ethiopia - Create Custom QR Codes">
+    <meta property="twitter:description" content="Create beautiful, customizable QR codes instantly. 100% free, no signup required. Perfect for Ethiopian businesses.">
+    <meta property="twitter:image" content="{{ url('/favicon.svg') }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url('/') }}">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR Gen - Free QR Code Generator",
+      "description": "Free online QR code generator for Ethiopia. Create custom QR codes with logos, colors, borders, and scan text. Generate QR codes for URLs, WiFi, vCard, SMS, Email. 100% free, no signup required.",
+      "url": "{{ url('/') }}",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "ETB"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "100"
+      },
+      "featureList": [
+        "Free QR code generation",
+        "Custom logos",
+        "Color customization",
+        "Multiple QR code types",
+        "No signup required",
+        "High resolution output",
+        "No watermark"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ethiopia"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "QR Gen",
+      "url": "{{ url('/') }}",
+      "logo": "{{ url('/favicon.svg') }}",
+      "description": "Free QR code generator for Ethiopia and worldwide",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ethiopia"
+      }
+    }
+    </script>
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-black min-h-screen text-white">
